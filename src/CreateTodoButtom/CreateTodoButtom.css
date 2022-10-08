@@ -1,0 +1,30 @@
+#create-todo-button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  color: var(--bg);
+  font-size: 40px;
+  text-align: center;
+  border-radius: 100%;
+  font-weight: bold;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(0);
+  transition: .3s ease;
+  z-index: 3;
+}
+
+#create-todo-button:hover {
+  color: darkslategray;
+}
+
+#create-todo-button[formactive='true']{
+  box-shadow: 0 0 20px 0 #A5A5A599;
+  transform: rotate(315deg);
+  background-color: #bf2413;
+  color: white;
+}

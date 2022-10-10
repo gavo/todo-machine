@@ -1,0 +1,22 @@
+#TodoList{
+  width: 100%;
+  align-self: center;
+}
+
+#TodoList ul{    
+  list-style-type: none;
+  margin: 100px auto 80px;
+  padding: 10px 0;
+  border: 0.5px 0  0.5px 0 solid darkslategray;
+  width: 90%;
+}
+
+@media screen and (min-width: 992px) {
+    #TodoList ul{
+        width: 720px;
+        align-self: center;
+    }
+    #TodoList{
+      width: 720px;
+    }
+}

@@ -7,6 +7,9 @@ import { TodoHeader } from "../TodoHeader";
 import { TodoContext } from "../TodoContext";
 import { TodoForm } from "../TodoForm";
 import { Modal } from "../Modal";
+import { TodosError } from "../TodosError";
+import { TodosLoading } from "../TodosLoading";
+import { EmptyTodos } from "../EmptyTodos";
 
 function AppUI() {
   const {
@@ -15,12 +18,18 @@ function AppUI() {
     completTodo,
     deleteTodo,
     openModal,
+    error,
+    loading,
+    todoCountSearch,
   } = React.useContext(TodoContext);
 
   return (
     <div id="App">
       <TodoHeader />
       <TodoList>
+        {error && <TodosError error={error} />}
+        {loading && new Array(10).fill(1).map((a, i) => <TodosLoading key={i} />)}
+        {!loading && todoCountSearch === 0 && <EmptyTodos />}
         {todos
           .filter((t) =>
             t.text.toLowerCase().includes(searchValue.toLowerCase())
@@ -37,7 +46,7 @@ function AppUI() {
 
       {openModal && (
         <Modal>
-          <TodoForm/>
+          <TodoForm />
         </Modal>
       )}
 

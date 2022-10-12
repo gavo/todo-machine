@@ -3,15 +3,19 @@ import "./CreateTodoButtom.css";
 import { TodoContext } from "../TodoContext";
 import { TodoIcon } from "../TodoIcon";
 
-const onClickButton = (createTodo, setOpenModal, openModal) => {
-  setOpenModal(!openModal);
-};
-
 function CreateTodoButtom() {
-  const { createTodo, openModal, setOpenModal } = React.useContext(TodoContext);
+  const { openModal, setOpenModal, openConfirmation, setOpenConfirmation, setTodoToDelete } = React.useContext(TodoContext);
 
   return (
-    <span  onClick={() => onClickButton(createTodo, setOpenModal, openModal)} id="create-todo-button" formactive={openModal?'true':'false'}>
+    <span
+      onClick={() => {
+        setOpenConfirmation(false);
+        setOpenModal(openModal === openConfirmation);
+        setTodoToDelete(undefined);
+      }}
+      id="create-todo-button"
+      formactive={openModal ? "true" : "false"}
+    >
       <TodoIcon type="plus" />
     </span>
   );

@@ -12,6 +12,8 @@ function TodoProvider(props) {
   } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
+  const [openConfirmation, setOpenConfirmation] = React.useState(false);
+  const [todoToDelete, setTodoToDelete] = React.useState(undefined);
 
   const completedTodos = todos.filter((t) => t.completed).length;
   const todoCountSearch = todos.filter((todo)=>todo.text.toLowerCase().includes(searchValue.toLowerCase())).length;
@@ -22,8 +24,8 @@ function TodoProvider(props) {
     saveTodos(todos);
   };
   const deleteTodo = (todo) => {
-    saveTodos(todos.filter((t) => t !== todo));
-  };
+    saveTodos(todos.filter((t) => t.text !== todo.text));
+  }; 
   const createTodo = (text) => {
     const newTodo = {
       text: text,
@@ -32,10 +34,6 @@ function TodoProvider(props) {
     todos.push(newTodo);
     saveTodos(todos);
   };
-
-  React.useEffect(() => {
-    console.log("Aquí cambia el estado de TotalTodos");
-  }, [totalTodos]);
 
   return (
     <TodoContext.Provider
@@ -49,6 +47,10 @@ function TodoProvider(props) {
         error,
         loading,
         todoCountSearch,
+        openConfirmation,
+        todoToDelete,
+        setTodoToDelete,
+        setOpenConfirmation,
         setSearchValue,
         completTodo,
         deleteTodo,

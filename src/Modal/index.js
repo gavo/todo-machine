@@ -12,4 +12,4 @@ function Modal({children}){
     );
 }
 
-export {Modal};
+export {Modal}; 

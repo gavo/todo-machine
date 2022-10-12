@@ -10,17 +10,20 @@ import { Modal } from "../Modal";
 import { TodosError } from "../TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../EmptyTodos";
+import { TodoConfirmation } from "../TodoConfirmation";
 
 function AppUI() {
   const {
     todos,
     searchValue,
     completTodo,
-    deleteTodo,
     openModal,
+    openConfirmation,
     error,
     loading,
     todoCountSearch,
+    setTodoToDelete,
+    setOpenConfirmation,
   } = React.useContext(TodoContext);
 
   return (
@@ -28,7 +31,7 @@ function AppUI() {
       <TodoHeader />
       <TodoList>
         {error && <TodosError error={error} />}
-        {loading && new Array(10).fill(1).map((a, i) => <TodosLoading key={i} />)}
+        {loading && new Array(5).fill(1).map((a, i) => <TodosLoading key={i} />)}
         {!loading && todoCountSearch === 0 && <EmptyTodos />}
         {todos
           .filter((t) =>
@@ -39,14 +42,16 @@ function AppUI() {
               key={todo.text}
               todo={todo}
               completTodo={completTodo}
-              deleteTodo={deleteTodo}
+              setTodoToDelete={setTodoToDelete}
+              setOpenConfirmation = {setOpenConfirmation}
             />
           ))}
       </TodoList>
 
-      {openModal && (
+      {(openModal || openConfirmation) && (
         <Modal>
-          <TodoForm />
+          {openModal && <TodoForm /> }
+          {openConfirmation && <TodoConfirmation /> }
         </Modal>
       )}
 

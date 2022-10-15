@@ -30,7 +30,6 @@
 .Icon-svg--remove {
   height: 16px;
   width: 16px;
-  fill: #ce1010;
   position: absolute;
   transition: 0.5s ease;
 }

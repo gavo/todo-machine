@@ -7,7 +7,7 @@ function TodoItem({ todo, completTodo, setTodoToDelete, setOpenConfirmation }) {
     <li className={`todo-item`}>
       <TodoIcon
         type="remove"
-        color="red"
+        color="#ce1010"
         onClick={() => {
           setTodoToDelete(todo);
           setOpenConfirmation(true);

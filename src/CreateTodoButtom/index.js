@@ -1,10 +1,8 @@
 import React from "react";
 import "./CreateTodoButtom.css";
-import { TodoContext } from "../TodoContext";
 import { TodoIcon } from "../TodoIcon";
 
-function CreateTodoButtom() {
-  const { openModal, setOpenModal, openConfirmation, setOpenConfirmation, setTodoToDelete } = React.useContext(TodoContext);
+function CreateTodoButtom({ openModal, setOpenModal, openConfirmation, setOpenConfirmation, setTodoToDelete }) {
 
   return (
     <span

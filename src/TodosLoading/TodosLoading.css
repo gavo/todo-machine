@@ -4,14 +4,10 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 .LoadingTodo-text {
-  margin: 20px;
+  margin: 20px 25px;
   width: 90%;
 }
 
@@ -42,5 +38,11 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .LoadingTodo-container {
+    width: 720px;
   }
 }

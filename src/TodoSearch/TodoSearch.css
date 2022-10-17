@@ -21,3 +21,8 @@ input[typeinput="search"]:focus {
   border-color: lightgray;
   outline: none;
 }
+
+
+#TodoSearch:disabled{
+  opacity: 25%;
+}

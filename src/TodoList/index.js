@@ -2,7 +2,7 @@ import React from 'react';
 import "./TodoList.css";
 
 function TodoList(props) {
-    const items = props.children || props.render
+    const items = props.children || props.render;
     return (
         <section id="TodoList">
             {props.error && props.onError()}

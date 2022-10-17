@@ -2,7 +2,7 @@ import React from "react";
 import { TodoIcon } from "../TodoIcon";
 import "./TodosLoading.css";
 
-function TodosLoading({ error }) {
+function TodosLoading() {
   return (
     <div className="LoadingTodo-container">
       <span className="LoadingTodo-completeIcon">

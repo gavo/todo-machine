@@ -14,7 +14,7 @@ function useTodos() {
   const [todoToDelete, setTodoToDelete] = React.useState(undefined);
 
   const completedTodos = todos.filter((t) => t.completed).length;
-  const todoCountSearch = todos.filter((todo) => todo.text.toLowerCase().includes(searchValue.toLowerCase())).length;
+  const todoCountSearch = todos.length;
 
   const totalTodos = todos.length;
   const completTodo = (todo) => {
@@ -35,7 +35,6 @@ function useTodos() {
 
   return {
     todos,
-    saveTodos,
     searchValue,
     completedTodos,
     totalTodos,
@@ -51,7 +50,8 @@ function useTodos() {
     completTodo,
     deleteTodo,
     createTodo,
-    setOpenModal
+    setOpenModal,
+    saveTodos,
   }
 }
 

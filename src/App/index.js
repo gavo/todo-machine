@@ -2,10 +2,10 @@ import React from "react";
 import "./App.css";
 import { useTodos } from "./useTodos";
 import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
 import { CreateTodoButtom } from "../CreateTodoButtom";
 import { TodoHeader } from "../TodoHeader";
-import { TodoCounter } from "../TodoCounter"
+import { TodoCounter } from "../TodoCounter";
+import { TodoItem } from "../TodoItem";
 import { TodoSearch } from "../TodoSearch";
 import { TodoForm } from "../TodoForm";
 import { Modal } from "../Modal";
@@ -15,13 +15,13 @@ import { EmptyTodos } from "../EmptyTodos";
 import { TodoConfirmation } from "../TodoConfirmation";
 
 function App() {
-  const {   
+  const {
     todos,
     totalTodos,
     completedTodos,
     searchValue,
     openModal,
-    openConfirmation, 
+    openConfirmation,
     error,
     loading,
     todoCountSearch,
@@ -46,22 +46,26 @@ function App() {
           searchValue={searchValue}
         />
       </TodoHeader>
-      <TodoList>
-        {error && <TodosError error={error} />}
-        {loading && new Array(5).fill(1).map((a, i) => <TodosLoading key={i} />)}
-        {!loading && todoCountSearch === 0 && <EmptyTodos />}
-        {todos.filter((t) =>
-            t.text.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((todo) => (
-            <TodoItem
-              key={todo.text}
-              todo={todo}
-              completTodo={completTodo}
-              setTodoToDelete={setTodoToDelete}
-              setOpenConfirmation={setOpenConfirmation}
-            />
-          ))}
+      <TodoList
+        error={error}
+        loading={loading}
+        todoCountSearch={todoCountSearch}
+        searchValue={searchValue}
+        todos={todos}
+        onError={error => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onEmptyTodos={() => <EmptyTodos />}
+        onEmptyEmptySearchResults={() => <p>No hay Resultados para "{searchValue.toUpperCase()}"</p>}
+        //render=
+      >
+        {todo => (
+          <TodoItem
+            key={todo.text}
+            todo={todo}
+            completTodo={completTodo}
+            setTodoToDelete={setTodoToDelete}
+            setOpenConfirmation={setOpenConfirmation}
+          />)}
       </TodoList>
 
       {(openModal || openConfirmation) && (

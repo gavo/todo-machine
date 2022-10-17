@@ -1,11 +1,12 @@
 #TodoList{
   width: 100%;
   align-self: center;
+  margin:  100px 0;
 }
 
 #TodoList ul{    
   list-style-type: none;
-  margin: 100px auto 80px;
+  margin: 0 auto 80px;
   padding: 10px 0;
   border: 0.5px 0  0.5px 0 solid darkslategray;
   width: 90%;

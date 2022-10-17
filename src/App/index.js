@@ -35,8 +35,8 @@ function App() {
     setOpenModal,
   } = useTodos();
   return (
-    <div id="App">
-      <TodoHeader>
+    <div id="App" >
+      <TodoHeader loading={loading}>
         <TodoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
@@ -52,11 +52,11 @@ function App() {
         todoCountSearch={todoCountSearch}
         searchValue={searchValue}
         todos={todos}
-        onError={error => <TodosError />}
+        onError={error => <TodosError error={error}/>}
         onLoading={() => <TodosLoading />}
-        onEmptyTodos={() => <EmptyTodos />}
-        onEmptyEmptySearchResults={() => <p>No hay Resultados para "{searchValue.toUpperCase()}"</p>}
-        //render=
+        onEmptyTodos={() => <EmptyTodos message={"No se han encontrado Tareas, Agregar Nueva Tarea con el botón (+)"}/>}
+        onEmptyEmptySearchResults={() => <EmptyTodos message={`no se han encontrado resultados para "${searchValue.toUpperCase()}"`}/>}
+      //render=
       >
         {todo => (
           <TodoItem

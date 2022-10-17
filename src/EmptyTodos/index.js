@@ -1,7 +1,6 @@
-import Rect from 'react';
 
-function EmptyTodos(){
-    return (<p>¡No hay nada para mostrar, Crea una Tarea usando el boton (+)!</p>)
+function EmptyTodos({message}){
+    return (<p>{message}</p>)
 }
 
 export {EmptyTodos};

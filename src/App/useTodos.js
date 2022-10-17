@@ -1,13 +1,11 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext();
-
-function TodoProvider(props) {
+function useTodos() {
   const {
-    item: todos, 
-    saveItem: saveTodos, 
-    error, 
+    item: todos,
+    saveItem: saveTodos,
+    error,
     loading
   } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
@@ -16,8 +14,8 @@ function TodoProvider(props) {
   const [todoToDelete, setTodoToDelete] = React.useState(undefined);
 
   const completedTodos = todos.filter((t) => t.completed).length;
-  const todoCountSearch = todos.filter((todo)=>todo.text.toLowerCase().includes(searchValue.toLowerCase())).length;
-  
+  const todoCountSearch = todos.filter((todo) => todo.text.toLowerCase().includes(searchValue.toLowerCase())).length;
+
   const totalTodos = todos.length;
   const completTodo = (todo) => {
     todo.completed = !todo.completed;
@@ -25,7 +23,7 @@ function TodoProvider(props) {
   };
   const deleteTodo = (todo) => {
     saveTodos(todos.filter((t) => t.text !== todo.text));
-  }; 
+  };
   const createTodo = (text) => {
     const newTodo = {
       text: text,
@@ -35,32 +33,26 @@ function TodoProvider(props) {
     saveTodos(todos);
   };
 
-  return (
-    <TodoContext.Provider
-      value={{
-        todos,
-        saveTodos,
-        searchValue,
-        completedTodos,
-        totalTodos,
-        openModal,
-        error,
-        loading,
-        todoCountSearch,
-        openConfirmation,
-        todoToDelete,
-        setTodoToDelete,
-        setOpenConfirmation,
-        setSearchValue,
-        completTodo,
-        deleteTodo,
-        createTodo,
-        setOpenModal
-      }}
-    >
-      {props.children}
-    </TodoContext.Provider>
-  );
+  return {
+    todos,
+    saveTodos,
+    searchValue,
+    completedTodos,
+    totalTodos,
+    openModal,
+    error,
+    loading,
+    todoCountSearch,
+    openConfirmation,
+    todoToDelete,
+    setTodoToDelete,
+    setOpenConfirmation,
+    setSearchValue,
+    completTodo,
+    deleteTodo,
+    createTodo,
+    setOpenModal
+  }
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

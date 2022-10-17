@@ -1,13 +1,10 @@
 import React from "react";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
 import "./TodoHeader.css";
 
-function TodoHeader() {
+function TodoHeader({children}) {
   return (
     <div id="todo-header">
-      <TodoCounter />
-      <TodoSearch />
+      {children}
     </div>
   );
 }

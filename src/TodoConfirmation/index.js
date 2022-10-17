@@ -1,14 +1,11 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import "./TodoConfirmation.css";
 
-function TodoConfirmation() {
-  const {
-    setOpenConfirmation,
-    deleteTodo,
-    todoToDelete,
-    setTodoToDelete,
-  } = React.useContext(TodoContext);
+function TodoConfirmation({
+  setOpenConfirmation,
+  deleteTodo,
+  todoToDelete,
+  setTodoToDelete}) {
   return (
     <div className="TodoConfirmation-container">
       <span className="TodoConfirmation-message">

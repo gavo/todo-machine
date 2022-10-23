@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/todo-machine/static/css/main.ea72aefc.css",
-    "main.js": "/todo-machine/static/js/main.ced79960.js",
-    "static/media/checkbox.svg": "/todo-machine/static/media/checkbox.8ceaeb06596f149f606054613fbc300f.svg",
-    "static/media/cross.svg": "/todo-machine/static/media/cross.c8029428e9aa1547afa7d9b886d7b27b.svg",
-    "static/media/plus.svg": "/todo-machine/static/media/plus.8f0ebb55870ad01e8ea8baffed9199a8.svg",
+    "main.css": "/todo-machine/static/css/main.c9cd12fd.css",
+    "main.js": "/todo-machine/static/js/main.e3c339cd.js",
+    "static/media/checkbox.svg": "/todo-machine/static/media/checkbox.6da3fb521e04642574072914e026d9d6.svg",
+    "static/media/cross.svg": "/todo-machine/static/media/cross.91c0917d19e75144f9dfcb1db69f46e3.svg",
     "index.html": "/todo-machine/index.html",
-    "static/media/square.svg": "/todo-machine/static/media/square.03ea4b0226e4f65f8a61f1f436fa5ff2.svg",
-    "main.ea72aefc.css.map": "/todo-machine/static/css/main.ea72aefc.css.map",
-    "main.ced79960.js.map": "/todo-machine/static/js/main.ced79960.js.map"
+    "static/media/plus.svg": "/todo-machine/static/media/plus.782f40a63ce6e35141b35b50d13e1606.svg",
+    "static/media/square.svg": "/todo-machine/static/media/square.cd59eab90c3c0fb24cf236fb9ede9b1b.svg",
+    "main.c9cd12fd.css.map": "/todo-machine/static/css/main.c9cd12fd.css.map",
+    "main.e3c339cd.js.map": "/todo-machine/static/js/main.e3c339cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea72aefc.css",
-    "static/js/main.ced79960.js"
+    "static/css/main.c9cd12fd.css",
+    "static/js/main.e3c339cd.js"
   ]
 }
